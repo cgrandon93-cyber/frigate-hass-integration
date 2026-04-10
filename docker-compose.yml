@@ -1,5 +1,14 @@
----
-services:
+---services:
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:stable
+    network_mode: host
+    ...
+
+  frigate:
+    image: ghcr.io/blakeblackshear/frigate:stable
+    ...
+    ports:
+      - "172.17.0.1:5000:5000"
   devcontainer:
     build:
       context: .
